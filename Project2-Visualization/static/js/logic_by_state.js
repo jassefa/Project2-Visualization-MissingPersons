@@ -15,13 +15,14 @@ var path = d3.geoPath() // path generator that will convert GeoJSON to SVG paths
   .projection(projection); // tell path generator to use albersUsa projection
 
 //Create SVG element and append map to the SVG
-var svg = d3.select("map")
+var svg = d3
+  .select("#map")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
 
 // Load in my states data!
-d3.csv("Choro_colors.csv", function(data) {
+d3.csv("static/Resources/Choro_colors.csv", function(data) {
 	var dataArray = [];
 	for (var d = 0; d < data.length; d++) {
 		dataArray.push(parseFloat(data[d].value))
@@ -31,7 +32,7 @@ d3.csv("Choro_colors.csv", function(data) {
 	var ramp = d3.scaleLinear().domain([minVal,maxVal]).range([lowColor,highColor])
 	
   // Load GeoJSON data and merge with states data
-  d3.json("us-states.json", function(json) {
+  d3.json("static/Resources/us-states.json", function(json) {
 
     // Loop through each state data value in the .csv file
     for (var i = 0; i < data.length; i++) {
@@ -72,7 +73,7 @@ d3.csv("Choro_colors.csv", function(data) {
             for (var i=0; i<data.length; i++)
             {
                 if (data[i].State==d.properties.name)
-                return data[i][2017];
+                return data[i][1977];
             }
         console.log(data);
   });
