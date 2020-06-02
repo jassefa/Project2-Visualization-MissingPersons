@@ -27,10 +27,10 @@ def index():
     return render_template('index1.html')
 
 # Set route
-@app.route('/missingAge')
+@app.route('/missingByAge')
 def index1():
 
-    return render_template('missingState.html')
+    return render_template('missingByAge.html')
 
 # Set route
 @app.route('/missingGender')
@@ -50,9 +50,14 @@ def index4():
 
     return render_template('monthToMonth.html')
 
+@app.route('/missingState')
+def index5():
+
+    return render_template('missingState.html')
+
     # Set route
 @app.route('/comparison')
-def index5():
+def index6():
 
     return render_template('comparison.html')
 
